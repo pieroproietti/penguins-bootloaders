@@ -24,19 +24,19 @@ override_dh_install:
 
 	# Copia i file di sistema nelle directory temporanee
 
-	# i386
-	ifeq ($(DEB_HOST_ARCH),i386)
-		# Questa riga deve iniziare con un TAB
-		cp -a /usr/lib/grub/i386-pc/* debian/tmp/usr/lib/grub/i386-pc/
-	endif
+# i386
+ifeq ($(DEB_HOST_ARCH),i386)
+	# Questa riga deve iniziare con un TAB
+	cp -a /usr/lib/grub/i386-pc/* debian/tmp/usr/lib/grub/i386-pc/
+endif
 
-	# amd64
-	ifeq ($(DEB_HOST_ARCH),amd64)
-		# Questa riga deve iniziare con un TAB
-		cp -a /usr/lib/grub/x86_64-efi/* debian/tmp/usr/lib/grub/x86_64-efi/
-		cp -a /usr/lib/grub/x86_64-efi-signed/* debian/tmp/usr/lib/grub/x86_64-efi-signed/
-		cp -a /usr/lib/shim/shimx64.efi.signed debian/tmp/usr/lib/shim/
-	endif
+# amd64
+ifeq ($(DEB_HOST_ARCH),amd64)
+	# Questa riga deve iniziare con un TAB
+	cp -a /usr/lib/grub/x86_64-efi/* debian/tmp/usr/lib/grub/x86_64-efi/
+	cp -a /usr/lib/grub/x86_64-efi-signed/* debian/tmp/usr/lib/grub/x86_64-efi-signed/
+	cp -a /usr/lib/shim/shimx64.efi.signed debian/tmp/usr/lib/shim/
+endif
 
 	# tutte le architetture
 	cp -a /usr/lib/ISOLINUX/isolinux.bin debian/tmp/usr/lib/ISOLINUX/
