@@ -44,6 +44,8 @@ endif
 	cp -a /usr/lib/PXELINUX/lpxelinux.0 debian/tmp/usr/lib/PXELINUX/
 	cp -a /usr/lib/syslinux/modules/bios/*.c32 debian/tmp/usr/lib/syslinux/modules/bios/
 	cp -a /usr/lib/ipxe/ipxe.efi debian/tmp/usr/lib/ipxe/
+	cp -a /usr/lib/ipxe/ipxe.lkrn debian/tmp/usr/lib/ipxe/
+
 
 	# Eseguiamo il comando dh_install originale, che ora troverà i file
 	dh_install
