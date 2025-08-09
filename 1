@@ -2,15 +2,12 @@
 set -e
 VERSION="$(< ./release)"
 
-# Crea e passa a un ramo upstream temporaneo
-git checkout -b upstream
+# Aggiorna il changelog alla nuova versione
+dch -v $VERSION "Aggiunto supporto per il bootloader XYZ."
 
-# Rimuovi la cartella debian e fai commit
-git rm -r -f debian/
-git commit -m "Isolating clean source for v$VERSION"
+# Fai il commit di questa modifica
+git add debian/changelog
+git commit -m "Release v$VERSION"
 
-# Crea il tag su questo commit pulito
+# (Opzionale ma consigliato) Crea un tag per questa versione
 git tag $VERSION
-
-# Crea l'archivio da questo tag
-git archive --format=tar.gz --prefix=penguins-bootloaders-$VERSION/ -o ../penguins-bootloaders_$VERSION.orig.tar.gz $VERSION
