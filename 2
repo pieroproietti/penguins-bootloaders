@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+VERSION="$(< ./release)"
+
+git checkout master
+#git branch -D temp-release-$VERSION

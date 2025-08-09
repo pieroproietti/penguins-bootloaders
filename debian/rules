@@ -1,0 +1,34 @@
+#!/usr/bin/make -f
+
+# Abilita la modalità verbosa di Debhelper per log più chiari
+export DH_VERBOSE = 1
+
+# Questo è un target jolly di make.
+# Qualsiasi target (es. clean, binary) verrà passato a Debhelper.
+%:
+	dh $@
+
+# Override di dh_install per copiare i file di sistema prima dell'installazione
+override_dh_install:
+	# Creiamo le directory di destinazione nella cartella temporanea del pacchetto
+	mkdir -p debian/tmp/usr/lib/grub/i386-pc
+	mkdir -p debian/tmp/usr/lib/grub/x86_64-efi
+	mkdir -p debian/tmp/usr/lib/grub/x86_64-efi-signed
+	mkdir -p debian/tmp/usr/lib/ISOLINUX
+	mkdir -p debian/tmp/usr/lib/PXELINUX
+	mkdir -p debian/tmp/usr/lib/syslinux/modules/bios
+	mkdir -p debian/tmp/usr/lib/ipxe
+	mkdir -p debian/tmp/usr/lib/shim
+
+	# Copiamo i file dal sistema alla cartella temporanea
+	cp -a /usr/lib/grub/i386-pc/* debian/tmp/usr/lib/grub/i386-pc/
+	cp -a /usr/lib/grub/x86_64-efi/* debian/tmp/usr/lib/grub/x86_64-efi/
+	cp -a /usr/lib/grub/x86_64-efi-signed/* debian/tmp/usr/lib/grub/x86_64-efi-signed/
+	cp -a /usr/lib/ISOLINUX/isolinux.bin debian/tmp/usr/lib/ISOLINUX/
+	cp -a /usr/lib/PXELINUX/* debian/tmp/usr/lib/PXELINUX/
+	cp -a /usr/lib/syslinux/modules/bios/*.c32 debian/tmp/usr/lib/syslinux/modules/bios/
+	cp -a /usr/lib/ipxe/ipxe.efi debian/tmp/usr/lib/ipxe/
+	cp -a /usr/lib/shim/shimx64.efi.signed debian/tmp/usr/lib/shim/
+
+	# Eseguiamo il comando dh_install originale, che ora troverà i file
+	dh_install

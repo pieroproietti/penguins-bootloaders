@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+echo "Rimozione della directory /usr/lib/penguins-bootloaders..."
+rm -rf /usr/lib/penguins-bootloaders
+
+exit 0

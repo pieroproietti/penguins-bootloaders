@@ -1,0 +1,21 @@
+# File e directory temporanee di Debhelper
+debian/tmp/
+debian/.debhelper/
+debian/files
+debian/*.substvars
+debian/debhelper-build-stamp
+
+# Directory di staging del pacchetto (il casino che hai visto)
+# Questo dice a Git di ignorare qualsiasi cartella in debian/ che inizia
+# con il nome del tuo pacchetto.
+debian/penguins-bootloaders*/
+
+# File generati nella directory superiore (se la build avviene lì)
+# Anche se gbp li crea fuori, è bene averli per build locali.
+*.deb
+*.ddeb
+*.buildinfo
+*.changes
+*.orig.tar.gz
+*.diff.gz
+*.dsc

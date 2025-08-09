@@ -1,0 +1,30 @@
+Source: penguins-bootloaders
+Section: admin
+Priority: optional
+Maintainer: Piero Proietti <piero.proietti@gmail.com>
+Build-Depends: debhelper (>= 13), debhelper-compat (= 13)
+Standards-Version: 4.6.2
+
+Package: penguins-bootloaders-pc-amd64
+Architecture: amd64
+Depends: grub-pc-bin, grub-efi-ia32-bin, grub-efi-amd64-bin, syslinux-common, ipxe, isolinux, pxelinux, shim-signed
+Description: Aggrega i bootloader GRUB, Syslinux e iPXE per PC a 64 bit.
+ Questo pacchetto installa i principali bootloader per l'architettura x86-64
+ e ne copia i file in /usr/lib/penguins-bootloaders per un facile accesso.
+
+Package: penguins-bootloaders-pc-i386
+Architecture: i386
+Depends: grub-pc-bin, grub-efi-ia32-bin, syslinux-common, ipxe, isolinux, pxelinux
+Description: Aggrega i bootloader GRUB, Syslinux e iPXE per PC a 32 bit.
+ Questo pacchetto installa i principali bootloader per l'architettura i386
+ e ne copia i file in /usr/lib/penguins-bootloaders per un facile accesso.
+
+
+Package: penguins-bootloaders-arm64
+Architecture: arm64
+Depends: grub-efi-arm64-bin, u-boot-tools, ipxe, shim-signed
+Description: Aggrega i bootloader GRUB e U-Boot per architettura ARM a 64 bit.
+ Questo pacchetto installa i principali bootloader per l'architettura aarch64
+ e ne copia i file in /usr/lib/penguins-bootloaders per un facile accesso.
+
+ 

@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+VERSION="$(< ./release)"
+
+git branch upstream
+gbp import-orig ../penguins-bootloaders_$VERSION.orig.tar.gz
