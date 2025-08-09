@@ -1,10 +1,11 @@
-penguins-bootloaders (1.1-1) UNRELEASED; urgency=medium
+penguins-bootloaders (1.3) UNRELEASED; urgency=medium
 
   [ Piero Proietti ]
   * Rilascio iniziale del pacchetto.
   * Rilascio della versione 1.1
+  * Aggiunto supporto per il bootloader XYZ.
 
   [ artisan ]
   * Rilascio della versione 1.1
 
- -- Piero Proietti <piero.proietti@gmail.com>  Fri, 08 Aug 2025 17:07:21 +0200
+ -- Piero Proietti <piero.proietti@gmail.com>  Sat, 09 Aug 2025 16:47:46 +0200
