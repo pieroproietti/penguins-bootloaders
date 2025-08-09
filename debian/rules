@@ -11,17 +11,10 @@ export DH_VERBOSE = 1
 # Override di dh_install per copiare i file di sistema prima dell'installazione
 override_dh_install:
 	# Creiamo le directory di destinazione nella cartella temporanea del pacchetto
-	# i386
-	ifeq ($(DEB_HOST_ARCH),i386)
-		mkdir -p debian/tmp/usr/lib/grub/i386-pc
-	endif
-
-	# amd64
-	ifeq ($(DEB_HOST_ARCH),amd64)
-		mkdir -p debian/tmp/usr/lib/grub/x86_64-efi
-		mkdir -p debian/tmp/usr/lib/grub/x86_64-efi-signed
-		mkdir -p debian/tmp/usr/lib/shim
-	endif
+	mkdir -p debian/tmp/usr/lib/grub/i386-pc
+	mkdir -p debian/tmp/usr/lib/grub/x86_64-efi
+	mkdir -p debian/tmp/usr/lib/grub/x86_64-efi-signed
+	mkdir -p debian/tmp/usr/lib/shim
 
 	# tutte le architetture
 	mkdir -p debian/tmp/usr/lib/ISOLINUX
@@ -33,11 +26,13 @@ override_dh_install:
 
 	# i386
 	ifeq ($(DEB_HOST_ARCH),i386)
+		# Questa riga deve iniziare con un TAB
 		cp -a /usr/lib/grub/i386-pc/* debian/tmp/usr/lib/grub/i386-pc/
 	endif
 
 	# amd64
 	ifeq ($(DEB_HOST_ARCH),amd64)
+		# Questa riga deve iniziare con un TAB
 		cp -a /usr/lib/grub/x86_64-efi/* debian/tmp/usr/lib/grub/x86_64-efi/
 		cp -a /usr/lib/grub/x86_64-efi-signed/* debian/tmp/usr/lib/grub/x86_64-efi-signed/
 		cp -a /usr/lib/shim/shimx64.efi.signed debian/tmp/usr/lib/shim/
