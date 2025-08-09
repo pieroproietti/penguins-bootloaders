@@ -8,6 +8,8 @@ usr/lib/ISOLINUX/isolinux.bin   usr/lib/penguins-bootloaders/ISOLINUX
 
 # File per PXELINUX
 usr/lib/PXELINUX/pxelinux.0     usr/lib/penguins-bootloaders/PXELINUX
+usr/lib/PXELINUX/lpxelinux.0     usr/lib/penguins-bootloaders/PXELINUX
+
 
 # File per Syslinux (il wildcard funziona qui)
 usr/lib/syslinux/modules/bios/*.c32   usr/lib/penguins-bootloaders/syslinux/modules/bios
