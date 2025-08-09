@@ -26,7 +26,6 @@ override_dh_install:
 	cp -a /usr/lib/grub/x86_64-efi-signed/* debian/tmp/usr/lib/grub/x86_64-efi-signed/
 	cp -a /usr/lib/ISOLINUX/isolinux.bin debian/tmp/usr/lib/ISOLINUX/
 	cp -a /usr/lib/PXELINUX/pxelinux.0 debian/tmp/usr/lib/PXELINUX/
-	cp -a /usr/lib/PXELINUX/lpxelinux.0 debian/tmp/usr/lib/PXELINUX/
 	cp -a /usr/lib/syslinux/modules/bios/*.c32 debian/tmp/usr/lib/syslinux/modules/bios/
 	cp -a /usr/lib/ipxe/ipxe.efi debian/tmp/usr/lib/ipxe/
 	cp -a /usr/lib/shim/shimx64.efi.signed debian/tmp/usr/lib/shim/
