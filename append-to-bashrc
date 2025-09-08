@@ -1,5 +1,0 @@
-# Impostazioni per gli strumenti di pacchettizzazione Debian
-export DEBFULLNAME="Piero Proietti"
-export DEBEMAIL="piero.proietti@gmail.com"
-export EMAIL="piero.proietti@gmail.com"
-
